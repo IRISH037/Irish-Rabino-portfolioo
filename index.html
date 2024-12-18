@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irish Rabino - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      background-color: #f6f7f9; /* Soft off-white background */
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      background: linear-gradient(135deg, #c8a2c8, #a3c4f3); /* Soft pastel gradient */
+      color: white;
+      text-align: center;
+      padding-top: 30px;
+    }
+    .sidebar img {
+      width: 120px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-bottom: 15px;
+    }
+    .sidebar h2 {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #4f4f4f;
+    }
+    .sidebar p {
+      font-size: 14px;
+      color: #4f4f4f;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    .sidebar ul li {
+      padding: 15px 0;
+    }
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #ffb6c1; /* Light pink hover color */
+    }
+
+    /* Content Area */
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url("img/profile1.jpg") no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      animation: fadeIn 2s;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      color: #f0e5cf; /* Pastel cream */
+    }
+    .hero p {
+      font-size: 1.5rem;
+      color: #ffb6c1; /* Light pink */
+    }
+
+    /* Sections */
+    .section {
+      margin: 50px 0;
+      animation: slideIn 1s;
+    }
+    .section h2 {
+      font-size: 28px;
+      text-transform: uppercase;
+      color: #a1c4e8; /* Pastel blue */
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ffb6c1;
+      display: inline-block;
+    }
+
+    /* Seminars Section */
+    .seminars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .seminar-card {
+      background-color: #ffecf1; /* Soft pastel pink */
+      border: 1px solid #f2d3e1;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .seminar-card:hover {
+      background-color: #a3c4f3; /* Pastel blue hover */
+      color: white;
+    }
+    .seminar-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .seminar-card .card-body {
+      padding: 20px;
+    }
+    .seminar-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #4f4f4f;
+    }
+    .seminar-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .seminar-card .date {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* My Projects Section */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .project-card {
+      background-color: #ffecf1; /* Soft pastel pink */
+      border: 1px solid #f2d3e1;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .project-card:hover {
+      background-color: #a3c4f3; /* Pastel blue hover */
+      color: white;
+    }
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .project-card .card-body {
+      padding: 20px;
+    }
+    .project-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #4f4f4f;
+    }
+    .project-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .project-card .date {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background: #a3c4f3; /* Pastel blue background */
+      color: white;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    /* Social Media Section */
+.social-media {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f4f4f4;
+}
+
+.social-media h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  display: inline-block;
+  font-size: 30px;
+  color: #555;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.social-icon.facebook:hover {
+  color: #3b5998;
+}
+
+.social-icon.twitter:hover {
+  color: #00acee;
+}
+
+.social-icon.linkedin:hover {
+  color: #0e76a8;
+}
+
+.social-icon.github:hover {
+  color: #333;
+}
+
+/* Optional: Add custom styling for mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .social-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* Resume Section */
+#resume {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#resume h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #4a4a4a;
+  margin-bottom: 30px;
+}
+
+.resume-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.resume-section {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+.resume-section h3 {
+  font-size: 22px;
+  color: #6b6b6b;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #a3c4f3;
+  padding-bottom: 5px;
+}
+
+.resume-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resume-section ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.resume-section ul li strong {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    flex-direction: column;
+  }
+}
+/* Hero Section Font Styling */
+.hero-heading {
+  font-family: 'Poppins', sans-serif; /* Modern and clean font */
+  font-size: 3rem; /* Large and bold */
+  font-weight: 700; /* Emphasize the title */
+  color: #2a9d8f; /* Vibrant and eye-catching color */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center; /* Center-align for symmetry */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.hero-subheading {
+  font-family: 'Roboto', sans-serif; /* Complementary secondary font */
+  font-size: 1.5rem; /* Smaller than the main heading */
+  font-weight: 400; /* Normal weight */
+  color: #555; /* Neutral color to contrast with the heading */
+  text-align: center; /* Center-align for balance */
+  margin-top: 0; /* Remove default margin */
+}
+#seminars h2 {
+  color: #4a4a4a;
+
+}
+#projects h2 {
+  color: #4a4a4a;
+
+}
+/* Resume Section Enhancements */
+#resume {
+  background: linear-gradient(120deg, #fdf2f8, #e3f2fd);
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#resume h2 {
+  font-size: 2.5rem;
+  color: #7f8c8d; /* Soft gray for text */
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.resume-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.resume-section {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.resume-section h3 {
+  font-size: 1.8rem;
+  color: #8e44ad; /* Pastel purple */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #8e44ad;
+  display: inline-block;
+}
+
+.resume-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resume-section li {
+  font-size: 1rem;
+  color: #555; /* Neutral text color */
+  margin: 5px 0;
+}
+
+.resume-section li strong {
+  color: #2c3e50; /* Slightly darker pastel */
+}
+
+.resume-section li em {
+  font-size: 0.9rem;
+  color: #95a5a6; /* Light gray pastel for emphasis */
+}
+
+.resume-section li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* Images */
+.resume-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Hero Heading */
+.hero-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #8e44ad; /* Pastel purple */
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+/* Button for Download Resume (Optional) */
+.download-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f9c5d1; /* Pastel pink */
+  color: #2c3e50;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #f1a9c7; /* Slightly darker pastel pink */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="img/profile.jpg" alt="Profile Picture">
+    <h2>Irish Rabino</h2>
+    <p>4th Year IT Student</p>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#seminars">Seminars</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div>
+        <h1 class="hero-heading">Welcome to My Portfolio</h1>
+        <p class="hero-subheading">Discover My Projects and Achievements</p>
+      </div>
+    </section>
+<!--------------------------------ABOUT ME---------------------------------------------->
+<section id="resume" class="section">
+  <h2 class="hero-heading">About Me</h2>
+  <div class="resume-container">
+
+    <!-- Personal Information -->
+    <div class="resume-section">
+      <h3>Personal Information</h3>
+      <ul>
+        <li><strong>Name:</strong> Irish Rabino</li>
+        <li><strong>Email:</strong> rabino.irish.c210061@gmail.com</li>
+        <li><strong>Phone:</strong> +63 961 260 2658</li>
+        <li><strong>Address:</strong> Itlugan, Rosario, Batangas</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="resume-section">
+      <h3>Skills</h3>
+      <ul>
+        <li>Web Development (HTML, CSS, JavaScript)</li>
+        <li>Backend Development (PHP, MySQL)</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </div>
+
+    <!-- Education -->
+    <div class="resume-section">
+      <div class="resume-images">
+        <img src="img/education.jpg" alt="Education" onclick="openModal('img/education.jpg')">
+        <img src="img/wis.jpg" alt="Education" onclick="openModal('img/wis.jpg')">
+        <img src="img/shs.jpg" alt="Education" onclick="openModal('img/shs.jpg')">
+      </div>
+      <h3>Education</h3>
+      <ul>
+        <li>
+          <strong>Bachelor of Science in Information Technology</strong>  
+          <br> Westmead International School, (2021-2025)
+        </li>
+        <li>
+          <strong>Senior High School (ABM Strand)</strong>  
+          <br> Saint Joseph College of Rosario Batangas Inc., (2018-2020)
+        </li>
+        <li>
+          <strong>Junior High School</strong>  
+          <br> Saint Joseph College of Rosario Batangas Inc., (2016-2018)
+        </li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="resume-section">
+      <div class="resume-images">
+        <img src="img/exp1.jpg" alt="Experience Image 1" onclick="openModal('img/exp1.jpg')">
+        <img src="img/exp2.jpg" alt="Experience Image 2" onclick="openModal('img/exp2.jpg')">
+        <img src="img/exp3.jpg" alt="Experience Image 3" onclick="openModal('img/exp3.jpg')">
+      </div>
+      <h3>Experience</h3>
+      <ul>
+        <li>
+          <strong>Web Developer Intern</strong>  
+          <br> ARC System Solution Co., Aug 2024 – Dec 2024  
+          <br> Developed a Tourist Spot Destination in Luzon.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div class="resume-section">
+      <div class="resume-images">
+        <img src="img/honor1.jpg" alt="Certification Image 1" onclick="openModal('img/honor1.jpg')">
+        <img src="img/honor2.jpg" alt="Certification Image 2" onclick="openModal('img/honor2.jpg')">
+      </div>
+      <h3>Certifications</h3>
+      <ul>
+        <li>
+          <strong>Academic Excellence - With Honors</strong>  
+          <br> Recognized for outstanding academic performance during Senior High School.  
+          <em>Saint Joseph College of Rosario Batangas, 2019-2020</em>
+        </li>
+        <li>
+          <strong>Academic Excellence (With Honors)</strong>  
+          <br> Awarded for exemplary academic achievements during the fourth quarter of Senior High School.  
+          <em>Saint Joseph College of Rosario Batangas, 2019-2020</em>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <a href="irish resume.pdf" class="download-btn">Download My Resume</a>
+</section>
+
+<!-- Modal for Image Pop-Up -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+<script>
+  // Open the modal and set the image
+function openModal(imageSrc) {
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  modal.style.display = "block";
+  modalImage.src = imageSrc;
+}
+
+// Close the modal
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  modal.style.display = "none";
+}
+
+</script>
+
+<!--------------------------------ABOUT ME END---------------------------------------------->
+
+<style>
+  /* About Me Section Styling */
+.section {
+  padding: 40px;
+  background-color: #f8ede3; /* Light pastel peach */
+}
+
+/* Modal container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Modal image */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Transition effect for the modal */
+.modal-content, .close {
+  transition: 0.3s;
+}
+
+/* Hover effect on the close button */
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #a5c4d4; /* Soft pastel blue */
+}
+
+.resume-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.resume-section {
+  background: #f4f1f9; /* Light pastel lavender */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.resume-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.resume-images img {
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.resume-section h3 {
+  font-size: 1.5rem;
+  color: #7e57c2;
+  margin-bottom: 15px;
+}
+
+.resume-section ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.resume-section li strong {
+  color: #a5c4d4; /* Soft pastel blue */
+}
+
+.download-btn {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #7e57c2; /* Light pastel green */
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #f48fb1; /* Slightly darker pastel green */
+}
+
+</style>
+
+ <!------------------- Seminars Section --------------------->
+<section id="seminars" class="section">
+  <h2 class="hero-heading">Seminars I've Attended</h2>
+  <div class="seminars-timeline">
+
+    <!-- Seminar 1 -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="seminar-image">
+          <img src="img/isite.jpg" alt="AI Tools in Education" class="clickable-image">
+          <img src="img/isitee.jpg" alt="AI Tools in Education" class="clickable-image">
+        </div>
+        <h4>ISITE Conference</h4>
+        <p><strong>Organizer:</strong> CITCS</p>
+        <p><strong>Location:</strong> University of Perpetual Help-Molino Campus Laguna, Philippines</p>
+        <p><strong>Description:</strong> Focused on the latest trends in AI and education. The seminar included interactive workshops and live sessions.</p>
+        <p class="date"><strong>Attended:</strong> November 29, 2023</p>
+      </div>
+    </div>
+
+    <!-- Seminar 2 -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="seminar-image">
+          <img src="img/seba.jpeg" alt="Unlocking Success" class="clickable-image">
+          <img src="img/research.jpg" alt="Unlocking Success" class="clickable-image">
+        </div>
+        <h4>Unlocking Success in the 21st Century Business Environment</h4>
+        <p><strong>Organizer:</strong> Trina's Group</p>
+        <p><strong>Location:</strong> South Peak, Batangas City</p>
+        <p><strong>Description:</strong> Covered key business trends and strategies for success in modern business environments.</p>
+        <p class="date"><strong>Attended:</strong> April 16, 2024</p>
+      </div>
+    </div>
+
+     <!-- Seminar 3 -->
+     <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="seminar-image">
+          <img src="img/databiz.jpg" alt="AI Tools in Education" class="clickable-image">
+        </div>
+        <h4>DATABIZ CONFERENCE 2024
+          (Data Science, Artificial Intelligence and Business Analytics)</h4>
+        <p><strong>Organizer:</strong> Nel's Group</p>
+        <p><strong>Location:</strong> Lipa City</p>
+        <p><strong>Description:</strong>This seminar explores how cloud technology powers digital transformation, enabling scalable operations and integrating tools like AI and big data, while highlighting essential skills for success in this field.</p>
+        <p class="date"><strong>Attended:</strong> November 9, 2024</p>
+      </div>
+    </div>
+
+    <!-- Seminar 4 -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="seminar-image">
+          <img src="img/jarvis.jpg" alt="J.A.R.V.I.S. Seminar" class="clickable-image">
+          <img src="img/jarviss.jpg" alt="J.A.R.V.I.S. Seminar" class="clickable-image">
+        </div>
+        <h4>Jumpstarting AI to Redefine Virtual Intelligence in IoT System (J.A.R.V.I.S.)</h4>
+        <p><strong>Organizer:</strong> Jimuel's Group</p>
+        <p><strong>Location:</strong> University of Santo Tomas - College of Information and Computing Sciences, Manila, Philippines</p>
+        <p><strong>Description:</strong> A conference on data security techniques and best practices to combat cybersecurity threats. Sessions included insights from industry leaders.</p>
+        <p class="date"><strong>Attended:</strong> May 23, 2024</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Modal -->
+<div id="lightbox-modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="lightbox-image">
+  <div id="caption"></div>
+</div>
+
+<script>
+  // Lightbox Modal Script
+  const images = document.querySelectorAll('.clickable-image');
+  const modal = document.getElementById('lightbox-modal');
+  const modalImg = document.getElementById('lightbox-image');
+  const captionText = document.getElementById('caption');
+  const closeBtn = document.querySelector('.close');
+
+  images.forEach((img) => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modalImg.src = img.src;
+      captionText.innerHTML = img.alt;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+<style>
+  .seminars-timeline .seminar-image img {
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #caption {
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+
+  /* Seminars Section */
+.seminars-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  background-color:  #5c3c92;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.seminar-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.timeline-content h4 {
+  font-size: 18px;
+  margin-top: 10px;
+  color:  #5c3c92;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: #444;
+}
+
+.date {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  font-size: 14px;
+  color: #444;
+}
+
+</style>
+<!------------------- Seminars Section End --------------------->
+
+
+   <!------------------- My Works Section ---------------------> 
+<section id="projects" class="section">
+  <h2 class="hero-heading">My Works</h2>
+  <div class="works-container">
+
+    <!-- Project 1 -->
+    <div class="work-item">
+      <div class="work-image">
+        <img src="img/project1.jpg" alt="project2.jpg">
+      </div>
+      <div class="work-details">
+        <h4>Knowledge-Based System Tourist Spot in Luzon </h4>
+        <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+        <p><strong>Description:</strong> Enchanted Luzon Getaways is a website showcasing Luzon's top tourist spots with detailed descriptions, maps, and stunning visuals. It helps travelers explore and plan visits to the region's most enchanting destinations.</p>
+        
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="work-item">
+      <div class="work-image">
+        <img src="img/project2.png" alt="Project 2 Thumbnail">
+      </div>
+      <div class="work-details">
+        <h4>Personal Website (Portfolio)</h4>
+        <p><strong>Technologies Used:</strong> HTML, CSS, JAVASCRIPT</p>
+        <p><strong>Description:</strong> This personal website serves as a portfolio for showcasing projects, achievements. It includes sections like Home, About, Seminars, Projects, and Contact.</p>
+       
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="work-item">
+      <div class="work-image">
+        <img src="img/ecoms1.png" alt="">
+      </div>
+      <div class="work-details">
+        <h4>E-commerce System</h4>
+        <p><strong>Technologies Used:</strong> Html, Css, PhP, MySQL, Javascript</p>
+        <p><strong>Description:</strong>This e-commerce platform, "Shopping na kayo Guyz!," offers a user-friendly interface with categories like Books, Electronics, Furniture, and Fashion. It features a search bar and cart summary for convenience. An admin panel allows easy product management, ensuring the platform stays updated.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!------------------- My Works Section End --------------------->
+
+<style>
+  /* Styles for My Works section */
+  #my-works {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+  }
+
+  .works-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .work-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+  }
+
+  .work-item:hover {
+    transform: translateY(-10px);
+  }
+
+  .work-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #f4f4f4;
+  }
+
+  .work-details {
+    padding: 20px;
+  }
+
+  .work-details h4 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #7e57c2;
+  }
+
+  .work-details p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .work-details .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .work-details .btn:hover {
+    background-color: #2980b9;
+  }
+
+  @media (max-width: 768px) {
+    .works-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .works-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+
+  <!-- Social Media Section -->
+<section id="contact" class="social-media">
+  <h2>Connect with Me</h2>
+
+  <!-- Social Icons Section -->
+  <div class="social-icons">
+    <a href="https://x.com/iriiiiissh?t=Y7KF31pWt7xdzgQZvnGd4A&s=09" target="_blank" class="icon" title="Follow me on Twitter">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+    <a href="https://www.facebook.com/irish.rabino.50?mibextid=ZbWKwL" target="_blank" class="icon" title="Connect on Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/ememeasdfg/profilecard/?igsh=emJ1NHl4YTQ1bThv" target="_blank" class="icon" title="Follow me on Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:rabino.irish.c210061@gmail.com" class="icon" title="Send me an Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+<style>
+  /* Pastel Theme Styles */
+  .social-media {
+    background-color: #fce4ec; /* Light pink pastel */
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-media h2 {
+    color: #6a4c93; /* Soft purple pastel */
+    margin-bottom: 30px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .social-icons .icon i {
+    font-size: 40px;
+    color: #b39ddb; /* Soft lavender */
+    transition: color 0.3s ease, transform 0.2s ease-in-out;
+  }
+
+  .social-icons .icon i:hover {
+    transform: scale(1.2);
+  }
+
+  .social-icons a:nth-child(1) i:hover {
+    color: #ffab91; /* Pastel coral */
+  }
+
+  .social-icons a:nth-child(2) i:hover {
+    color: #81d4fa; /* Pastel sky blue */
+  }
+
+  .social-icons a:nth-child(3) i:hover {
+    color: #f48fb1; /* Pastel rose pink */
+  }
+
+  .social-icons a:nth-child(4) i:hover {
+    color: #ffcc80; /* Pastel peach */
+  }
+
+  .message-me {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff; /* White for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e1bee7; /* Lavender border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .message-me h3 {
+    color: #6a4c93; /* Soft purple pastel */
+    margin-bottom: 20px;
+  }
+
+  .message-me form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .message-me input, .message-me textarea, .message-me button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .message-me input, .message-me textarea {
+    background-color: #f3e5f5; /* Lavender pastel background */
+    color: #6a4c93; /* Soft purple text */
+  }
+
+  .message-me button {
+    background-color: #ba68c8; /* Pastel purple */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .message-me button:hover {
+    background-color: #ab47bc; /* Slightly darker pastel purple */
+  }
+</style>
+
+
+
+    <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h4>About Me</h4>
+      <p>
+        Hi! I'm Irish Rabino, a passionate developer and tech enthusiast. I love creating innovative solutions and connecting with like-minded individuals.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#seminars">Seminars</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="footer-contact">
+      <h4>Contact Info</h4>
+      <p><i class="fas fa-envelope"></i> rabino.irish.c210061@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +63 912 345 6789</p>
+      <p><i class="fas fa-map-marker-alt"></i> Rosario, Batangas, Philippines</p>
+    </div>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="footer-bottom">
+    <p>&copy; 2024 Irish Rabino | All Rights Reserved</p>
+    <p>Designed with ❤️ by Irish Rabino</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #fce4ec; /* Pastel Pink */
+    color: #5d4037; /* Soft Brown Text */
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    max-width: 300px;
+  }
+
+  .footer h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #7e57c2; /* Pastel Purple */
+  }
+
+  .footer p,
+  .footer ul {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer a {
+    color: #8e24aa; /* Soft Pastel Violet */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: #f48fb1; /* Lighter Pink */
+  }
+
+  .footer-bottom {
+    font-size: 14px;
+    border-top: 1px solid #d1c4e9; /* Light Purple */
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+
+  .footer-bottom p {
+    margin: 5px 0;
+  }
+
+  .footer i {
+    margin-right: 10px;
+    color: #8e24aa; /* Soft Violet */
+  }
+</style>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
